@@ -1,0 +1,29 @@
+# Service Values
+
+port: 3306
+targetPort: 3306
+serviceType: LoadBalancer
+protocol: TCP
+
+
+# Deployment Values
+
+registry:  #some docker registry
+repo: #prod or dev
+imageTag: latest
+imageName: mydevopsapp
+
+env:
+  TYPEORM_CONNECTION: "mysql"
+  TYPEORM_HOST: #some endpoint
+  TYPEORM_PORT: 3306
+  TYPEORM_USERNAME: "root"
+  TYPEORM_PASSWORD: "admin"
+  TYPEORM_DATABASE: "database"
+  TYPEORM_AUTO_SCHEMA_SYNC: true
+  TYPEORM_ENTITIES: "dist/**/*.entity.js"
+  TYPEORM_SUBSCRIBERS: "dist/subscriber/**/*.js"
+  TYPEORM_MIGRATIONS: "dist/migrations/**/*.js"
+  TYPEORM_ENTITIES_DIR: "src/entity"
+  TYPEORM_MIGRATIONS_DIR: "src/migration"
+  TYPEORM_SUBSCRIBERS_DIR: "src/subscriber"
